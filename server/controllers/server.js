@@ -1,7 +1,6 @@
 const prisma = require("../config/prisma");
 
 
-
 exports.read = (req, res) => {
   try {
     res.send("Hello world");
@@ -13,10 +12,8 @@ exports.read = (req, res) => {
 
 exports.listUser = async (req, res) => {
   try {
-    const userData = await prisma.user.findMany({
-      take : 10
-    });
-    res.json(userData);
+    const data = await prisma.user.findMany()
+    res.json(data)
   } catch (error) {
     console.log(error.message);
     res.status(500).json("Server Error");
