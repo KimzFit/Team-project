@@ -1,4 +1,5 @@
 const prisma = require("../config/prisma");
+const db = require('../config/mysql')
 
 
 exports.read = (req, res) => {

@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-readdirSync("./routes").map((c) => app.use("/api", require("./routes/" + c)));
+readdirSync("./routes").map((c) => app.use("/api", require("./routes/"+c)));
 
 //*********Swagger Docuemntation*********//
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
