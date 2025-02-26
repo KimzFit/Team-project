@@ -25,11 +25,8 @@
             <option value="2">ประจำที่</option>
           </select>
           <select class="form-select">
-            <option selected>2550</option>
-            <option value="B316">2551</option>
-            <option value="B317">2552</option>
-            <option value="B318">2553</option>
-            <option value="B318">2554</option>
+            <option selected>เลือกปี</option>
+            <option *ngFor="let year of uniqueYears" [value]="year">{{ year }}</option>
           </select>
         </div>
         <div class="input-group">

@@ -23,6 +23,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 export class TableComponent implements OnInit {
   equipmentData: any[] = []; // ตัวแปรเก็บข้อมูลจาก API
+  uniqueYears: number[] = []; // ตัวแปรเก็บปีที่ไม่ซ้ำกัน
 
   constructor(private http: HttpClient) {}
 
@@ -36,6 +37,9 @@ export class TableComponent implements OnInit {
         (data) => {
           console.log('Fetched equipment data:', data);
           this.equipmentData = data;
+
+          // กรองปีที่ไม่ซ้ำกันจาก API
+          this.uniqueYears = [...new Set(this.equipmentData.map(item => item.years.years))].sort();
         },
         (error) => {
           console.error('Error fetching equipment data:', error);
@@ -43,3 +47,4 @@ export class TableComponent implements OnInit {
       );
   }
 }
+
