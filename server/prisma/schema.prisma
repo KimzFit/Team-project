@@ -8,18 +8,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id       Int      @id @default(autoincrement())
-  email    String   @unique
-  password String
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
-  name     String?
-  role     String   @default("user")
+model equipment {
+  id               Int       @id @default(autoincrement())
+  equipment_id     String    @unique
+  name             String
+  qty              Int
+  purchase_year_Id Int?
+  model            String?
+  status           String
+  room             String
+  categoryId       Int?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime? @default(now()) @updatedAt @db.Timestamp(0)
+  category         category? @relation(fields: [categoryId], references: [id])
+  years            years?    @relation(fields: [purchase_year_Id], references: [id])
+
+  @@index([categoryId], map: "equipment_categoryId_fkey")
+  @@index([purchase_year_Id], map: "equipment_purchase_year_Id_fkey")
 }
 
-model students {
-  student_id String  @id @db.Char(8)
-  full_name  String? @db.VarChar(20)
-  major_id   Int?
+model years {
+  id        Int         @id @default(autoincrement())
+  years     Int
+  createdAt DateTime    @default(now())
+  updatedAt DateTime?   @default(now()) @updatedAt @db.Timestamp(0)
+  equipment equipment[]
+}
+
+model category {
+  id            Int         @id @default(autoincrement())
+  category_name String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  equipment     equipment[]
 }
