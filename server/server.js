@@ -10,12 +10,10 @@ const PORT = 7000;
 
 //*********************Middleware**********************/
 app.use(express.json());
-app.use(
-  cors({
-    credentials: true,
-    origin: ["http://localhost:4200"],
-  })
-);
+app.use(cors({
+  credentials : true,
+  origin : ["http://localhost:4200"]
+}));
 app.use(cookieParser());
 app.use(morgan("dev"));
 //*************************************************** */

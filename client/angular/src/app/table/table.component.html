@@ -55,21 +55,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>จอคอมพิวเตอร์</td>
-              <td>50ชพ.01015899000000-01(1)</td>
-              <td>GWINSTEK GPS-3303</td>
-              <td>10</td>
-              <td>2550</td>
-              <td>B316</td>
-            </tr>
-            <tr>
-              <td>เครื่องแสดงคลื่นกระแสไฟฟ้าแบบตั้งพื้น</td>
-              <td>50ชพ.01015899000000-01(1)</td>
-              <td>GWINSTEK GPS-3303</td>
-              <td>10</td>
-              <td>2550</td>
-              <td>B316</td>
+            <tr *ngFor="let item of equipmentData">
+              <td>{{ item.name }}</td>
+              <td>{{ item.equipment_id }}</td>
+              <td>{{ item.model }}</td>
+              <td>{{ item.qty }}</td>
+              <td>{{ item.years.years }}</td>
+              <td>{{ item.room }}</td>
             </tr>
           </tbody>
         </table>
