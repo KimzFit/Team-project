@@ -24,8 +24,9 @@
             <option value="1">รายการครุภัณฑ์</option>
             <option value="2">ประจำที่</option>
           </select>
-          <select class="form-select">
-            <option selected>เลือกปี</option>
+          <select class="form-select" [(ngModel)]="selectedYear" (change)="onYearChange()">
+            <option value="" disabled selected>เลือกปี</option>
+            <option value="all">ข้อมูลทั้งหมด</option> 
             <option *ngFor="let year of uniqueYears" [value]="year">{{ year }}</option>
           </select>
         </div>
@@ -52,7 +53,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of equipmentData">
+            <tr *ngFor="let item of filteredData">
               <td>{{ item.name }}</td>
               <td>{{ item.equipment_id }}</td>
               <td>{{ item.model }}</td>

@@ -1,29 +1,21 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-table',
-//   imports: [],
-//   templateUrl: './table.component.html',
-//   styleUrl: './table.component.css'
-// })
-// export class TableComponent {
-
-// }
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, HttpClientModule], // นำเข้า HttpClientModule
+  imports: [CommonModule, HttpClientModule, FormsModule],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  equipmentData: any[] = []; // ตัวแปรเก็บข้อมูลจาก API
-  uniqueYears: number[] = []; // ตัวแปรเก็บปีที่ไม่ซ้ำกัน
+  equipmentData: any[] = [];
+  filteredData: any[] = [];
+  uniqueYears: number[] = [];
+  selectedYear: string | number = ''; 
 
   constructor(private http: HttpClient) {}
 
@@ -35,10 +27,8 @@ export class TableComponent implements OnInit {
     this.http.get<any[]>('http://localhost:7000/api/equipment')
       .subscribe(
         (data) => {
-          console.log('Fetched equipment data:', data);
           this.equipmentData = data;
-
-          // กรองปีที่ไม่ซ้ำกันจาก API
+          this.filteredData = data;
           this.uniqueYears = [...new Set(this.equipmentData.map(item => item.years.years))].sort();
         },
         (error) => {
@@ -46,5 +36,22 @@ export class TableComponent implements OnInit {
         }
       );
   }
-}
 
+  onYearChange(): void {
+    if (this.selectedYear === 'all') {
+      this.filteredData = this.equipmentData;
+    } else if (this.selectedYear) {
+      this.http.post<any[]>('http://localhost:7000/api/equipment/year', { selectedYear: this.selectedYear })
+        .subscribe(
+          (data) => {
+            this.filteredData = data;
+          },
+          (error) => {
+            console.error('Error fetching filtered data:', error);
+          }
+        );
+    } else {
+      this.filteredData = this.equipmentData;
+    }
+  }
+}
