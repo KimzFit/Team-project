@@ -23,7 +23,6 @@ exports.read = async (req,res)=>{
 exports.readByYear = async (req, res) => {
   const { selectedYear } = req.body;  
   
-  
   try {
     const data = await prisma.equipment.findMany({
       where: {

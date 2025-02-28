@@ -32,12 +32,14 @@
         </div>
         <div class="input-group">
           <input
-            class="form-control"
-            list="itemList"
-            id="searchInput"
-            placeholder="ค้นหา"
-          />
-          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          class="form-control"
+          list="itemList"
+          id="searchInput"
+          placeholder="ค้นหา"
+          [(ngModel)]="searchQuery"
+          (input)="onSearch()"
+        />
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
         </div>
       </div>
       <div class="table-wrapper mt-4">
