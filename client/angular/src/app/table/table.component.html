@@ -24,22 +24,28 @@
             <option value="1">รายการครุภัณฑ์</option>
             <option value="2">ประจำที่</option>
           </select>
-          <select class="form-select" [(ngModel)]="selectedYear" (change)="onYearChange()">
+          <select
+            class="form-select"
+            [(ngModel)]="selectedYear"
+            (change)="onYearChange()"
+          >
             <option value="" disabled selected>เลือกปี</option>
-            <option value="all">ข้อมูลทั้งหมด</option> 
-            <option *ngFor="let year of uniqueYears" [value]="year">{{ year }}</option>
+            <option value="all">ข้อมูลทั้งหมด</option>
+            <option *ngFor="let year of uniqueYears" [value]="year">
+              {{ year }}
+            </option>
           </select>
         </div>
         <div class="input-group">
           <input
-          class="form-control"
-          list="itemList"
-          id="searchInput"
-          placeholder="ค้นหา"
-          [(ngModel)]="searchQuery"
-          (input)="onSearch()"
-        />
-        <span class="input-group-text"><i class="bi bi-search"></i></span>
+            class="form-control"
+            list="itemList"
+            id="searchInput"
+            placeholder="ค้นหา"
+            [(ngModel)]="searchQuery"
+            (input)="onSearch()"
+          />
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
         </div>
       </div>
       <div class="table-wrapper mt-4">

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
 
+
 @Component({
   selector: 'app-table',
   standalone: true,
@@ -24,6 +25,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.fetchEquipmentData();
   }
+
 
   fetchEquipmentData(): void {
     this.http.get<any[]>('http://localhost:7000/api/equipment')

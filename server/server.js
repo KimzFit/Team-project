@@ -12,7 +12,7 @@ const PORT = 7000;
 app.use(express.json());
 app.use(cors({
   credentials : true,
-  origin : ["http://localhost:4200"]
+  origin : ["http://localhost:4200" , "http://localhost:5173"]
 }));
 app.use(cookieParser());
 app.use(morgan("dev"));

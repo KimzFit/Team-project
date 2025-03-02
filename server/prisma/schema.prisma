@@ -17,10 +17,10 @@ model equipment {
   model            String?
   status           String
   room             String
-  categoryId       Int?
+  categoryId       String?
   createdAt        DateTime  @default(now())
   updatedAt        DateTime? @default(now()) @updatedAt @db.Timestamp(0)
-  category         category? @relation(fields: [categoryId], references: [id])
+  category         category? @relation(fields: [categoryId], references: [category_id])
   years            years?    @relation(fields: [purchase_year_Id], references: [id])
 
   @@index([categoryId], map: "equipment_categoryId_fkey")
@@ -36,9 +36,9 @@ model years {
 }
 
 model category {
-  id            Int         @id @default(autoincrement())
   category_name String
   createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  updatedAt     DateTime    @default(now()) @updatedAt @db.Timestamp(0)
+  category_id   String      @id @default(cuid())
   equipment     equipment[]
 }
