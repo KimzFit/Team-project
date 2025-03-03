@@ -1,17 +1,9 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { importProvidersFrom } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { TableComponent } from './app/table/table.component';
+import { provideRouter } from '@angular/router'; // ใช้ provideRouter แทน RouterModule
+import { routes } from './app/app.routes'; // ใช้ routes ที่กำหนดไว้
 import { AppComponent } from './app/app.component';
 
-const routes: Routes = [ 
-  { path: 'equipments', component: TableComponent },  
-  { path: '', redirectTo: '/equipments', pathMatch: 'full' },
-];
-
+// Bootstrap แอปพลิเคชัน
 bootstrapApplication(AppComponent, {
-  providers: [
-    importProvidersFrom(BrowserModule, RouterModule.forRoot(routes)),
-]
+  providers: [provideRouter(routes)] // ใช้ provideRouter
 }).catch(err => console.error(err));
