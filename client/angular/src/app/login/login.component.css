@@ -7,8 +7,7 @@
   font-family: "Noto Sans Thai", sans-serif;
 }
 
-html,
-body {
+html,body{
   margin: 0;
   padding: 0;
   width: 100%;
@@ -16,20 +15,17 @@ body {
   overflow: hidden; /* ป้องกันการเลื่อน */
 }
 
-body {
+.background{
   background: url("../../../public/img/university.jpg") no-repeat center
     center/cover;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  object-fit: cover;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
-
 .logo {
   position: absolute;
   top: 20px;
