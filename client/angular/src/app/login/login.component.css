@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans Thai", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* ป้องกันการเลื่อน */
+}
+
+body {
+  background: url("../../assets/images/background.jpg") no-repeat center
+    center/cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.logo img {
+  width: 120px;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 500px;
+}
+
+h2 {
+  font-size: 32px;
+  color: #203864;
+  font-weight: bold;
+}
+
+.input-group {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #6b6b6b;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.5s;
+}
+
+.input-group input:focus {
+  border-color: #d46518;
+  box-shadow: 0 0 5px rgba(212, 101, 24, 0.5);
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 20px;
+  background: #d46518;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #b35012;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .logo {
+    top: 10px;
+    left: 10px;
+  }
+
+  .logo img {
+    width: 60px;
+  }
+
+  .login-box {
+    padding: 30px;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .input-group input {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 18px;
+  }
+}
