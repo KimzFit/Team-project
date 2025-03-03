@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { login} = require("../controllers/auth");
+const { login } = require("../controllers/auth");
 
 /**
  * @swagger
@@ -46,8 +46,6 @@ const { login} = require("../controllers/auth");
  *                       example: joe@example.com
  */
 
-
 router.post("/login", login);
-
 
 module.exports = router;

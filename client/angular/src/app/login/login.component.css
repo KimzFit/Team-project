@@ -24,7 +24,7 @@ html,body{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed; /* ทำให้เต็มจอและไม่เลื่อน */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100vw;
