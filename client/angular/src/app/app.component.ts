@@ -1,28 +1,13 @@
-// import { Component } from '@angular/core';
-// import { TableComponent } from './table/table.component';
-
-// @Component({
-//   selector: 'app-root',
-//   imports: [TableComponent],
-//   templateUrl: './app.component.html',
-//   styleUrl: './app.component.css'
-// })
-
-// export class AppComponent {
-//   title = 'team';
-// }
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';  // นำเข้า RouterModule
-import { TableComponent } from './table/table.component';  // นำเข้า TableComponent
+import { RouterOutlet } from '@angular/router';  // ใช้ RouterOutlet สำหรับ Routing
 
 @Component({
   selector: 'app-root',
-  standalone: true,  // กำหนดให้เป็น Standalone Component
-  imports: [RouterModule, TableComponent],  // นำเข้า RouterModule สำหรับการทำ Routing
-  template: '<router-outlet></router-outlet>',  // ใช้ router-outlet เพื่อแสดง component ตามเส้นทาง
-  styleUrls: ['./app.component.css']  // ใช้ styleUrls แทน styleUrl
+  standalone: true,
+  template: '<router-outlet></router-outlet>',  // ใช้ router-outlet เพื่อแสดง Component ตามเส้นทาง
+  styleUrls: ['./app.component.css'],
+  imports: [RouterOutlet] // ✅ ใช้เฉพาะ RouterOutlet
 })
 export class AppComponent {
   title = 'team';
 }
-
