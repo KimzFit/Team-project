@@ -21,10 +21,14 @@ html,body{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed; /* ทำให้เต็มจอและไม่เลื่อน */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 .logo {
   position: absolute;

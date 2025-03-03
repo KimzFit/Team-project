@@ -3,13 +3,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+}
+
+.navbar{
+  display: block;
 }
 
 .navbar-top {
   position: fixed;  
   top: 0;
   left: 0;
-  max-width: 100vw;
   width: 100%;
   background-color: #203864;
   color: white;
@@ -47,8 +51,8 @@ body {
 
 .nav {
   display: flex;
-  margin-left: auto;  /* ให้ "หน้าหลัก" ไปอยู่ขวาสุด */
-  margin-right: 50px; /* ขยับ "หน้าหลัก" ออกจากขอบขวา */
+  margin-left: auto;
+  margin-right: 50px; 
 }
 
 .nav a {
@@ -148,6 +152,8 @@ body {
   font-size: 20px;
 }
 
+
+
 @media (max-width: 1024px) {
   .navbar-top {
     padding: 12px 5%;
@@ -157,8 +163,6 @@ body {
   .navbar-main {
     padding: 10px;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
   }
 
   .logo-container {
@@ -172,7 +176,7 @@ body {
   }
 
   .nav {
-    display: none; /* ซ่อนเมนูหลัก ให้ใช้ Sidebar แทน */
+    display: none;
   }
 
   .sidebar {
