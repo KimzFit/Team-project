@@ -19,10 +19,21 @@
 
       <div class="table-container mt-4">
         <div class="search-container">
-          <select class="form-select">
+          <select class="form-select" (change)="onSortChange($event)">
             <option selected>จัดเรียง</option>
-            <option value="1">รายการครุภัณฑ์</option>
-            <option value="2">ประจำที่</option>
+            <option value="name">รายการครุภัณฑ์</option>
+            <option value="room">ประจำที่</option>
+          </select>
+          <select
+            class="form-select"
+            [(ngModel)]="selectedRoom"
+            (change)="onRoomChange()"
+          >
+            <option value="" disabled selected>เลือกห้อง</option>
+            <option value="all">ข้อมูลทั้งหมด</option>
+            <option *ngFor="let room of uniqueRooms" [value]="room">
+              {{ room }}
+            </option>
           </select>
           <select
             class="form-select"
