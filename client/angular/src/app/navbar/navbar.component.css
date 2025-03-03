@@ -1,0 +1,231 @@
+* {
+  font-family: "Noto Sans Thai", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar-top {
+  position: fixed;  /* ทำให้ Navbar ติดด้านบน */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #203864;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10%;
+  font-size: 16px;
+  z-index: 999;
+}
+body {
+  padding-top: 60px; /* ป้องกัน navbar ทับเนื้อหาด้านบน */
+}
+.navbar-main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ปรับระยะห่างระหว่างโลโก้กับ "KMITL CE" */
+  margin-left: 75px; /* ชิดซ้าย */
+}
+
+.logo-container img {
+  width: 50px;  /* กำหนดความกว้างของโลโก้ */
+  height: auto;  /* ป้องกันภาพบิดเบี้ยว */
+  object-fit: contain; /* ทำให้ภาพไม่ผิดสัดส่วน */
+  
+}
+
+.nav {
+  display: flex;
+  margin-left: auto;  /* ให้ "หน้าหลัก" ไปอยู่ขวาสุด */
+  margin-right: 50px; /* ขยับ "หน้าหลัก" ออกจากขอบขวา */
+}
+
+.nav a {
+  color: #D46518 !important;
+  text-decoration: underline;
+  text-decoration-color: #D46518;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+  font-size: 18px;
+}
+
+.nav a:first-child {
+  margin-left: -155px;
+}
+
+.menu-btn {
+  font-size: 28px;
+  color: #203864;
+  cursor: pointer;
+  position: relative;
+  left: 20px;
+  order: -1;
+  margin-top: 13px;
+  margin-right: -10px;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 340px;
+  height: 100vh;
+  background-color: #203864;
+  padding: 35px;
+  transition: left 0.3s ease-in-out;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+#menu-toggle:checked + .sidebar {
+  left: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 275px;
+  font-size: 28px;
+  color: #F79B5B;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 100px 0 0 0;
+}
+
+.menu-list li {
+  padding: 10px 0;
+}
+
+.menu-list a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu-list a:hover {
+  color: #F79B5B;
+}
+
+.close-btn:hover {
+  color: #F79B5B;
+}
+
+.login {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.kmitl-text {
+  color: #203864;
+  font-size: 15px;
+  margin-top: 1px;
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+@media (max-width: 1024px) {
+  .navbar-top {
+    padding: 12px 5%;
+    font-size: 14px;
+  }
+
+  .navbar-main {
+    padding: 10px;
+  }
+
+  .logo-container {
+    margin-left: 20px;
+  }
+
+  .menu-btn {
+    left: 10px;
+    font-size: 24px;
+    margin-right: 5px;
+  }
+
+  .nav {
+    display: none; /* ซ่อนเมนูหลัก ให้ใช้ Sidebar แทน */
+  }
+
+  .sidebar {
+    width: 300px;
+  }
+
+  .close-btn {
+    left: 210px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-top {
+    font-size: 14px;
+    padding: 10px 5%;
+  }
+
+  .logo-container {
+    gap: 5px;
+  }
+
+  .logo-container img {
+    width: 40px; /* ลดขนาดโลโก้ */
+  }
+
+  .sidebar {
+    width: 280px;
+  }
+
+  .close-btn {
+    left: 180px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-top {
+    font-size: 12px;
+    padding: 8px 5%;
+  }
+
+  .logo-container img {
+    width: 35px;
+  }
+
+  .menu-btn {
+    font-size: 22px;
+    left: 5px;
+  }
+
+  .sidebar {
+    width: 260px;
+  }
+
+  .close-btn {
+    left: 160px;
+    font-size: 20px;
+  }
+}

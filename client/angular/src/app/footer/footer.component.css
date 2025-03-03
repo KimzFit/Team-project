@@ -1,0 +1,132 @@
+* {
+    font-family: "Noto Sans Thai", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* กำหนดพื้นหลังของ footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #203864;
+    color: white;
+    padding: 25px 0;
+}
+
+/* จัดการ layout ของ footer */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 200px; /* ลด padding ลง เพื่อไม่ให้มันจำกัดความกว้าง */
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* รูปแบบของ column */
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* กำหนดสีและขนาดหัวข้อ */
+.footer-column h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* จัดรูปแบบของเมนูแนะนำ */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+}
+
+/* จัดรูปแบบของรายการเมนู */
+.footer-column ul li {
+    margin: 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid white; /* เส้นใต้สีขาว */
+}
+
+/* ลิงก์สีขาวและไม่มีขีดเส้นใต้ */
+.footer-column ul li a {
+    color: #F79B5B;
+    text-decoration: none;
+}
+
+/* จัดตำแหน่ง social */
+.footer-social {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* ไอคอนของ Facebook */
+.footer-social i {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #F79B5B;
+}
+
+/* เปลี่ยนสีของข้อความในส่วน "ติดต่อเรา" */
+.footer-column p {
+    color: #F79B5B;
+    font-size: 16px;
+    padding: 3px;
+    white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+}
+
+.footer-social .text {
+    font-size: 16px; /* กำหนดขนาดตัวอักษร */
+    white-space: nowrap;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 50px;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .footer-column {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 15px 0;
+    }
+
+    .footer-column h3 {
+        font-size: 16px;
+    }
+
+    .footer-column ul li a, .footer-column p {
+        font-size: 14px;
+    }
+
+    .footer-social i {
+        font-size: 24px;
+    }
+}
