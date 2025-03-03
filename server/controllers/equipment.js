@@ -1,7 +1,6 @@
 const prisma = require('../config/prisma')
 
 exports.read = async (req,res)=>{
-
   try{
 
     const data = await prisma.equipment.findMany({
@@ -13,9 +12,6 @@ exports.read = async (req,res)=>{
         }
       }
     })
-
-    
-   
     res.json(data)
   }catch(err){
     console.log(err.message)

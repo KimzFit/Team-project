@@ -1,20 +1,22 @@
 const jwt = require("jsonwebtoken");
+const prisma = require("../config/prisma");
 
-exports.authCheck = (req, res, next) => {
+exports.authCheck = async(req, res, next) => {
   try {
-    const token = req.cookies.token;
-
-    if (!token) {
-      return res.status(401).json({ message: "Unauthorized" });
+    const headerToken = req.headers.authorization;
+    if (!headerToken) {
+      return res.status(401).json({ message: "No Token, Authorization" });
     }
-    const user = jwt.verify(token, process.env.Secret_key);
 
-    req.user = user;
+    const token = headerToken.split(" ")[1];
+    const decode = jwt.verify(token, process.env.Secret_key);
+    req.user = decode;
+
 
     next();
   } catch (err) {
     console.log(err.message);
-    res.status(500).json({ message: "Server Error" });
+    res.status(500).json({ message: "Please login before" });
   }
 };
 

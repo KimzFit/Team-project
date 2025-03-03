@@ -28,7 +28,7 @@ export class TableComponent implements OnInit {
 
 
   fetchEquipmentData(): void {
-    this.http.get<any[]>('http://localhost:7000/api/equipment')
+    this.http.get<any[]>('http://localhost:7000/api/equipment ' , {withCredentials : true})
       .subscribe(
         (data) => {
           this.equipmentData = data.sort((a, b) => b.years.years - a.years.years);
