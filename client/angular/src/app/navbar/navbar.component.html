@@ -20,7 +20,13 @@
         <!-- Navbar ด้านบน -->
         <div class="navbar-top">
             <span>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง วิทยาเขตชุมพรเขตรอุดมศักดิ์</span>
-            <a href="/login" class="login">เข้าสู่ระบบ</a>
+            <ng-container *ngIf="isLoggedIn; else loginTemplate">
+                <span>{{ userEmail }}</span>
+                <button (click)="logout()">ออกจากระบบ</button>
+            </ng-container>
+            <ng-template #loginTemplate>
+                <a href="/login" class="login">เข้าสู่ระบบ</a>
+            </ng-template>
         </div>
 
         <div class="navbar-main">

@@ -16,7 +16,15 @@ export class AuthService {
   // public observable ให้ส่วนอื่นๆ ของแอปสามารถ subscribe ได้
   loginState$ = this.loginStateSubject.asObservable();
 
-  constructor() {}
+  constructor() {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    const payload = user ? JSON.parse(user) : null;
+    
+    if (token && payload) {
+      this.loginStateSubject.next({ token, payload });
+    }
+  }
 
   // ฟังก์ชั่นในการอัพเดต login state
   setLoginState(token: string, payload: any) {

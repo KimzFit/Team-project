@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
+import { Router } from '@angular/router';  // เพิ่ม Router
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AuthService } from '../store/auth.service'; // เพิ่ม AuthService
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule ,NavbarComponent , FooterComponent ],
+  imports: [CommonModule, HttpClientModule, FormsModule, NavbarComponent, FooterComponent],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
@@ -22,9 +24,15 @@ export class TableComponent implements OnInit {
   selectedRoom: string = '';
   searchQuery: string = ''; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    // เช็คว่าผู้ใช้ล็อกอินอยู่หรือไม่
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/']); // ถ้าไม่ล็อกอินให้ redirect ไปที่หน้า '/'
+      return;
+    }
+
     this.fetchEquipmentData();
   }
 
