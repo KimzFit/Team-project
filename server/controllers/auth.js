@@ -45,7 +45,7 @@ exports.login = async (req, res) => {
         if (err) {
           return res.status(403).json({ message: err.message });
         }
-        res.json({ token, payload });
+        res.status(200).json({ token, payload });
       }
     );
   } catch (err) {
