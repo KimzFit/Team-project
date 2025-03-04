@@ -26,16 +26,6 @@ exports.authCheck = async(req, res, next) => {
     next();
   } catch (err) {
     console.log(err.message);
-    res.status(500).json({ message: "Please login before" });
-  }
-};
-
-exports.adminCheck = (req, res, next) => {
-  try {
-    const user = req.user;
-    console.log(user);
-  } catch (err) {
-    console.log(err.message);
     res.status(500).json({ message: "Server Error" });
   }
 };

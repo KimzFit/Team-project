@@ -12,7 +12,7 @@ exports.read = async (req,res)=>{
         }
       }
     })
-    res.json(data)
+    res.status(200).json(data)
   }catch(err){
     console.log(err.message)
     res.status(500).json({message : "Server Error"})
@@ -39,7 +39,7 @@ exports.readByYear = async (req, res) => {
       }
     });
 
-    res.json(data);
+    res.status(200).json(data);
   } catch (err) {
     console.log(err.message);
     res.status(500).json({ message: 'Server Error' });
