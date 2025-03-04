@@ -12,14 +12,9 @@ exports.authCheck = async(req, res, next) => {
     const decode = jwt.verify(token, process.env.Secret_key);
     req.user = decode;
 
-    const user = await prisma.students.findFirst({
+    const user = await prisma.teachers.findFirst({
       where : {
-        OR : [
-          {
-            email : decode.email || undefined,
-            student_id : decode.student_id || undefined
-          }
-        ]
+        email : decode.email
       }
     })
 

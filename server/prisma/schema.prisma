@@ -69,3 +69,13 @@ model education_years {
   updatedAt DateTime?  @default(now()) @updatedAt @db.Timestamp(0)
   students  students[]
 }
+
+model teachers {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  title     String
+  full_name String
+  password  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @default(now()) @updatedAt @db.Timestamp(0)
+}

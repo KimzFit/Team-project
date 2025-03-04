@@ -4,24 +4,20 @@ const bcrypt = require("bcryptjs");
 
 exports.login = async (req, res) => {
   try {
-    const { email, password, student_id} = req.body;
+    const { email, password } = req.body;
 
-    if (!email && !password) {
+    if (!email) {
       return res.status(400).json({ message: "Email/Student_id is required" });
     }
     if (!password) {
       return res.status(400).json({ message: "Password is required" });
     }
 
-    const user = await prisma.students.findFirst({
+    const user = await prisma.teachers.findFirst({
       where: {
-        OR: [
-          { email: email ?? undefined }, 
-          { student_id: student_id ?? undefined }
-        ]
-      }
+        email: email,
+      },
     });
-    
 
     if (!user) {
       return res
@@ -38,13 +34,7 @@ exports.login = async (req, res) => {
     const payload = {
       id: user.id,
       email: user.email,
-      eduction_years: user.education_yearsId,
-      title: user.title,
       full_name: user.full_name,
-      nick_name: user.nick_name,
-      birthdate: user.birthdate,
-      gender: user.gender,
-      phone: user.phone,
     };
 
     await jwt.sign(
