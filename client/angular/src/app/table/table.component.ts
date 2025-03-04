@@ -6,6 +6,7 @@ import { Router } from '@angular/router';  // เพิ่ม Router
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { AuthService } from '../store/auth.service'; // เพิ่ม AuthService
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-table',
@@ -27,17 +28,18 @@ export class TableComponent implements OnInit {
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    // เช็คว่าผู้ใช้ล็อกอินอยู่หรือไม่
     if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['/']); // ถ้าไม่ล็อกอินให้ redirect ไปที่หน้า '/'
+      this.router.navigate(['/']); 
       return;
     }
-
     this.fetchEquipmentData();
   }
 
   fetchEquipmentData(): void {
-    this.http.get<any[]>('http://localhost:7000/api/equipment')
+    const token = this.authService.getToken(); 
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+
+    this.http.get<any[]>('http://localhost:7000/api/equipment', { headers })
       .subscribe(
         (data) => {
           this.equipmentData = data.sort((a, b) => b.years.years - a.years.years);
@@ -54,10 +56,13 @@ export class TableComponent implements OnInit {
   }
 
   onYearChange(): void {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+
     if (this.selectedYear === 'all') {
       this.filteredByYearData = [...this.equipmentData];
     } else if (this.selectedYear) {
-      this.http.post<any[]>('http://localhost:7000/api/equipment/year', { selectedYear: this.selectedYear })
+      this.http.post<any[]>('http://localhost:7000/api/equipment/year', { selectedYear: this.selectedYear }, { headers })
         .subscribe(
           (data) => {
             this.filteredByYearData = data.sort((a, b) => b.years.years - a.years.years);
