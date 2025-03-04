@@ -190,7 +190,7 @@ CREATE TABLE `teachers` (
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `teachers_email_key` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,7 +199,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES (1,'athasart.na@kmitl.ac.th','อาจารย์','อรรถศาสตร์ นาตเทวัญ','$2a$12$q1aUJSIaEiUvUUhlvYhQSukM0w2OblU/Bzrnc2A0.FvSNmFjRROhq','2025-03-04 08:22:58.707','2025-03-04 08:22:58'),(2,'rattikorn.so@kmitl.ac.th','อาจารย์','รัตติกร สมบัติเเก้ว','$2a$12$hrqanwHbMrmHBbGdHfcNAumNWPp16Vj9d7MpBVmNXdKK3pepX7DNa','2025-03-04 08:22:58.707','2025-03-04 08:22:58');
+INSERT INTO `teachers` VALUES (1,'athasart.na@kmitl.ac.th','อาจารย์','อรรถศาสตร์ นาตเทวัญ','$2a$12$q1aUJSIaEiUvUUhlvYhQSukM0w2OblU/Bzrnc2A0.FvSNmFjRROhq','2025-03-04 08:22:58.707','2025-03-04 08:22:58'),(2,'rattikorn.so@kmitl.ac.th','อาจารย์','รัตติกร สมบัติเเก้ว','$2a$12$hrqanwHbMrmHBbGdHfcNAumNWPp16Vj9d7MpBVmNXdKK3pepX7DNa','2025-03-04 08:22:58.707','2025-03-04 08:22:58'),(3,'test@email.com','นาย','พชรพล พรหมเพศ','$2a$12$/tAThca0/NuUxYSkQqW6euois207Rl6J38hFDYYT7vru1WkAr/3tC','2025-03-04 10:55:44.107','2025-03-04 10:55:44');
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,4 +238,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-04  8:36:14
+-- Dump completed on 2025-03-04 10:56:41
