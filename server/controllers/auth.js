@@ -6,11 +6,8 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if (!email) {
-      return res.status(400).json({ message: "Email/Student_id is required" });
-    }
-    if (!password) {
-      return res.status(400).json({ message: "Password is required" });
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password is required" });
     }
 
     const user = await prisma.teachers.findFirst({
@@ -45,7 +42,7 @@ exports.login = async (req, res) => {
         if (err) {
           return res.status(403).json({ message: err.message });
         }
-        res.json({ token, payload });
+        res.status(200).json({ token, payload });
       }
     );
   } catch (err) {
