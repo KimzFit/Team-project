@@ -12,6 +12,21 @@ exports.authCheck = async(req, res, next) => {
     const decode = jwt.verify(token, process.env.Secret_key);
     req.user = decode;
 
+    const user = await prisma.students.findFirst({
+      where : {
+        OR : [
+          {
+            email : decode.email || undefined,
+            student_id : decode.student_id || undefined
+          }
+        ]
+      }
+    })
+
+    if(!user){
+      return res.status(402).json({message : "Unauthorization"})
+    }
+
 
     next();
   } catch (err) {
