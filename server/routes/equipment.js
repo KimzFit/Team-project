@@ -1,5 +1,6 @@
 const express = require("express");
 const { read, readByYear } = require("../controllers/equipment");
+const { authCheck } = require("../middleware/authCheck");
 
 const router = express.Router();
 
@@ -30,7 +31,7 @@ const router = express.Router();
  *                     type: string
  *                     example: โต๊ะ
  */
-router.get("/equipment" ,read);
+router.get("/equipment", authCheck, read);
 
 /**
  * @swagger

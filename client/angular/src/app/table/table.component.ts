@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'; 
+import { Router } from '@angular/router';  // เพิ่ม Router
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AuthService } from '../store/auth.service'; // เพิ่ม AuthService
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule ,NavbarComponent , FooterComponent ],
+  imports: [CommonModule, HttpClientModule, FormsModule, NavbarComponent, FooterComponent],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
@@ -22,14 +25,21 @@ export class TableComponent implements OnInit {
   selectedRoom: string = '';
   searchQuery: string = ''; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/']); 
+      return;
+    }
     this.fetchEquipmentData();
   }
 
   fetchEquipmentData(): void {
-    this.http.get<any[]>('http://localhost:7000/api/equipment')
+    const token = this.authService.getToken(); 
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+
+    this.http.get<any[]>('http://localhost:7000/api/equipment', { headers })
       .subscribe(
         (data) => {
           this.equipmentData = data.sort((a, b) => b.years.years - a.years.years);
@@ -46,10 +56,13 @@ export class TableComponent implements OnInit {
   }
 
   onYearChange(): void {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
+
     if (this.selectedYear === 'all') {
       this.filteredByYearData = [...this.equipmentData];
     } else if (this.selectedYear) {
-      this.http.post<any[]>('http://localhost:7000/api/equipment/year', { selectedYear: this.selectedYear })
+      this.http.post<any[]>('http://localhost:7000/api/equipment/year', { selectedYear: this.selectedYear }, { headers })
         .subscribe(
           (data) => {
             this.filteredByYearData = data.sort((a, b) => b.years.years - a.years.years);

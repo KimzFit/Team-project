@@ -8,12 +8,15 @@
 
 .navbar{
   display: block;
+  padding: 0;
+  width: 100%;
 }
 
+
 .navbar-top {
-  position: fixed;  
+  /* position: fixed;  
   top: 0;
-  left: 0;
+  left: 0; */
   width: 100%;
   background-color: #203864;
   color: white;
@@ -23,9 +26,8 @@
   font-size: 16px;
   z-index: 999;
 }
-body {
-  padding-top: 60px; /* ป้องกัน navbar ทับเนื้อหาด้านบน */
-}
+
+
 .navbar-main {
   display: flex;
   align-items: center;
