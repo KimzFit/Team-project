@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+router-outlet {
+  flex-grow: 1; /* ทำให้เนื้อหาขยายเต็มพื้นที่ */
+}
