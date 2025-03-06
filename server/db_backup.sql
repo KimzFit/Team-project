@@ -199,7 +199,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES (3,'test@email.com','นาย','พชรพล พรหมเพศ','$2a$12$/tAThca0/NuUxYSkQqW6euois207Rl6J38hFDYYT7vru1WkAr/3tC','2025-03-04 10:55:44.107','2025-03-04 10:55:44'),(4,'athasart.na@kmitl.ac.th','อาจารย์','อรรถศาสตร์ นาตเทวัญ','$2a$12$AZFYoG/.8eGNbUV0l17Ho.LqwJEq3rreuY89dsekULgZRNTBk.USC','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(5,'jaturong.ka@kmitl.ac.th','นาย','จตุรงค์ เกตุนิมิต','$2a$12$HUOGIiM.JL0PJaxlyMdYCuIgGfuW2BAkZHFb7antJj7.jS.FQAAgG','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(6,'pisakorn.si@kmitl.ac.th','อาจารย์','นภัทรพี สิทธิวัจน','$2a$12$mw1wqJ05eWDMPzN0XOkXt.ppDCK8uvuLm3ucNUtHh7B6pMX09z18m','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(7,'rattikorn.so@kmitl.ac.th','อาจารย์','รัตติกร สมบัติเเก้ว','$2a$12$3Q0UOeFzQ/KjyXgPPqTNUefWkggAMeC9hYW6PKk3O8GD5WjHmARi.','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(8,'silar.si@kmitl.ac.th','ว่าที่ ร.ต.','ศิลา ศิริมาสกุล','$2a$12$bb952SMz2Zt7FdAJkD.ZX.3wvHlOKW2PVX3AFfEQFyeMZYV7nB2Ru','2025-03-06 14:54:30.685','2025-03-06 14:54:30');
+INSERT INTO `teachers` VALUES (4,'athasart.na@kmitl.ac.th','อาจารย์','อรรถศาสตร์ นาตเทวัญ','$2a$12$AZFYoG/.8eGNbUV0l17Ho.LqwJEq3rreuY89dsekULgZRNTBk.USC','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(5,'jaturong.ka@kmitl.ac.th','นาย','จตุรงค์ เกตุนิมิต','$2a$12$HUOGIiM.JL0PJaxlyMdYCuIgGfuW2BAkZHFb7antJj7.jS.FQAAgG','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(6,'pisakorn.si@kmitl.ac.th','อาจารย์','นภัทรพี สิทธิวัจน','$2a$12$mw1wqJ05eWDMPzN0XOkXt.ppDCK8uvuLm3ucNUtHh7B6pMX09z18m','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(7,'rattikorn.so@kmitl.ac.th','อาจารย์','รัตติกร สมบัติเเก้ว','$2a$12$3Q0UOeFzQ/KjyXgPPqTNUefWkggAMeC9hYW6PKk3O8GD5WjHmARi.','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(8,'silar.si@kmitl.ac.th','ว่าที่ ร.ต.','ศิลา ศิริมาสกุล','$2a$12$bb952SMz2Zt7FdAJkD.ZX.3wvHlOKW2PVX3AFfEQFyeMZYV7nB2Ru','2025-03-06 14:54:30.685','2025-03-06 14:54:30');
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,4 +238,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-06 14:56:54
+-- Dump completed on 2025-03-06 14:58:56
