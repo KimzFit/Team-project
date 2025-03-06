@@ -1,7 +1,15 @@
-<app-navbar></app-navbar>  <!-- ใช้ NavbarComponent -->
-  <!-- ใช้ FooterComponent -->
-<app-story></app-story>    <!-- ใช้ StoryComponent -->
+
 <router-outlet></router-outlet> <!-- ใช้เพื่อแสดง Component ตาม Routing -->
-<app-info></app-info>      <!-- ใช้ InfoComponent -->
-<app-picture></app-picture> <!-- ใช้ PictureComponent -->
+<app-navbar></app-navbar>
+
+<!-- เชื่อม Event จาก app-story ไปที่ AppComponent -->
+<app-story (scrollToPicture)="scrollToPicture()"></app-story>
+
+<app-info></app-info>
+
+<!-- กำหนด #pictureSection เป็น anchor ที่จะให้เลื่อนลงไป -->
+<div #pictureSection>
+  <app-picture></app-picture>
+</div>
+
 <app-footer></app-footer>

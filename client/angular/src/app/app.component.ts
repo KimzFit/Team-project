@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';  // ใช้ RouterOutlet สำหรับ Routing
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -22,5 +22,13 @@ import { PictureComponent } from './picture/picture.component';
 })
 export class AppComponent {
   title = 'team-project';
+
+  @ViewChild('pictureSection') pictureSection!: ElementRef;
+
+  scrollToPicture() {
+    if (this.pictureSection) {
+      this.pictureSection.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }
 

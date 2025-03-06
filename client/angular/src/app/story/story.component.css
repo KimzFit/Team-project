@@ -1,63 +1,75 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* ป้องกันปัญหาขนาดของ element เกินจากที่กำหนด */
-  }
-.background-container {
-
-    left: 0;
-    width: 100%;  /* กำหนดขนาดที่ต้องการ */
-    height: 700px; 
-    background-image: url('/img/university.jpg');
-    position: relative;
-    overflow: hidden; /* ซ่อนส่วนเกิน */
-    display: flex;
-    background-size: cover; /* ครอปให้เต็ม */
-    background-position: center; /* จัดให้อยู่ตรงกลาง */
-    background-repeat: no-repeat; /* ไม่ให้รูปซ้ำ */
-    object-fit: cover;  
-    
-  }
-  .background-container div{
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    margin: auto;
-    margin-top: 12%;
-    font-family: 'Noto Sans Thai', sans-serif;
-
-  }
-  .background-container h1{
-    font-size: 64px;
-    color: white;  
-    font-weight: 600;
-    line-height: 20px;
-    letter-spacing: 0px;
-    text-align: center;
-
-  }
-
-.background-container p{
-    margin-top: 60px;
-    color: white;
-    font-size: 25px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: center;
-
-    
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ป้องกันปัญหาขนาดของ element เกินจากที่กำหนด */
 }
-.white-button{
-    font-family: 'Noto Sans Thai', sans-serif;
-    background-color: white; /* สีพื้นหลังของปุ่ม */
-    color:#D46518; 
-    border: white;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 10px;
-    margin-top: 50px;
-    width: 130px;
-    height: 70px;
-    text-align: center;
+
+.background-container {
+  left: 0;
+  width: 100%;  /* กำหนดขนาดที่ต้องการ */
+  height: 700px; 
+  background-image: url('/img/university.jpg');
+  position: relative;
+  overflow: hidden; /* ซ่อนส่วนเกิน */
+  display: flex;
+  background-size: cover; /* ครอปให้เต็ม */
+  background-position: center; /* จัดให้อยู่ตรงกลาง */
+  background-repeat: no-repeat; /* ไม่ให้รูปซ้ำ */
+  object-fit: cover;  
+}
+.background-container div {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin: auto;
+  margin-top: 12%;
+  font-family: 'Noto Sans Thai', sans-serif;
+}
+.background-container h1 {
+  font-size: 64px;
+  color: white;  
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.background-container p {
+  margin-top: 60px;
+  color: white;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.white-button {
+  font-family: 'Noto Sans Thai', sans-serif;
+  background-color: white; /* สีพื้นหลังของปุ่ม */
+  color:#D46518; 
+  border: white;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 10px;
+  margin-top: 50px;
+  width: 130px;
+  height: 70px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .background-container {
+      height: auto;
+      padding: 20px;
+  }
+  .background-container h1 {
+      font-size: 32px;
+  }
+  .background-container p {
+      font-size: 18px;
+  }
+  .white-button {
+      width: 100px;
+      height: 50px;
+      font-size: 16px;
+  }
 }

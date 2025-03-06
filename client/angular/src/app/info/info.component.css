@@ -1,58 +1,110 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* ป้องกันปัญหาขนาดของ element เกินจากที่กำหนด */
-  }
-.all{
+    background-color: #EEEEEE;
+}
+.all {
     position: relative;
     background-color: #EEEEEE;
-    
 }
-.team img{
-    margin-top: 5%;  
-    margin-left: 10%; 
-    width: 37%;
+.team {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5% 10%;
+}
+.team img {
+    width: 45%;
     height: auto;
     border-radius: 20px;
-
 }
-.team div{
-  float: right;
-  margin-right: 18%;
-  margin-top: 8%;
-  width: 30%;
-  height: auto;     
-   
+.team div {
+    width: 50%;
+    height: auto;
 }
-.team div h2{
+.team div h2 {
     color: #D46518;
     font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 56px;
+    font-size: 45px;
 }
-.team div p{
+.team div p {
     color: #4B3830;
     font-size: 25px;
     margin-top: 20px;
-    
+    font-family: 'Noto Sans Thai', sans-serif;
 }
-
-.ta{
+.ta {
     margin-top: 5%;
     margin-left: 10%;
-
-
 }
-.ta h1{
+.ta h1 {
     color: #D46518;
     font-family: 'Noto Sans Thai', sans-serif;
-    font-size: 56px;
+    font-size: 45px;
 }
-.ta p{
+.ta p {
     margin-top: 4%;
     width: 60%;
     color: #4B3830;
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 20px;
-    
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team img {
+        width: 70%;
+        margin-top: 20px;
+    }
+    .team div {
+        width: 80%;
+        margin-top: 20px;
+    }
+    .team div h2 {
+        font-size: 36px;
+    }
+    .team div p {
+        font-size: 22px;
+    }
+    .ta h1 {
+        font-size: 36px;
+    }
+    .ta p {
+        font-size: 18px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team img {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .team div {
+        width: 90%;
+        margin-top: 20px;
+    }
+    .team div h2 {
+        font-size: 32px;
+    }
+    .team div p {
+        font-size: 18px;
+    }
+    .ta h1 {
+        font-size: 32px;
+    }
+    .ta p {
+        font-size: 18px;
+        width: 90%;
+    }
 }
