@@ -12,6 +12,7 @@ exports.authCheck = async(req, res, next) => {
     const decode = jwt.verify(token, process.env.Secret_key);
     req.user = decode;
 
+
     const user = await prisma.teachers.findFirst({
       where : {
         email : decode.email
@@ -19,7 +20,7 @@ exports.authCheck = async(req, res, next) => {
     })
 
     if(!user){
-      return res.status(402).json({message : "Unauthorization"})
+      return res.status(402).json({message : "สำหรับอาจารย์เท่านั้น"})
     }
 
 

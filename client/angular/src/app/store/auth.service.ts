@@ -42,4 +42,8 @@ export class AuthService {
   getToken(): string | null {
     return this.loginStateSubject.value.token || localStorage.getItem('token');
   }
+
+  getUserRole(): string | null {
+    return this.loginStateSubject.value.payload?.role || null;
+  }
 }
