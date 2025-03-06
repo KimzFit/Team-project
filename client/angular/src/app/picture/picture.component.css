@@ -1,0 +1,43 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ป้องกันปัญหาขนาดของ element เกินจากที่กำหนด */
+  }
+.cc {
+    position: relative;
+    background-color: #EEEEEE;
+    padding-bottom: 10%;
+    
+    
+}
+
+.ce img{
+    padding-top: 60px;
+    width: 5%;
+    height: 20%;
+    margin-left : 900px;
+   
+}
+.ce h1{
+    color: #D46518;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 55px;
+    text-align: center;
+    margin-top: 2%;
+}
+.picture{
+    display: flex;
+    gap: 20px; 
+    justify-content: center; 
+    margin-top: 50px;
+}
+.picture img{
+ 
+  width: 500px;
+  height: 400px;
+  object-fit: cover; 
+  border-radius: 10px; 
+  
+    
+}

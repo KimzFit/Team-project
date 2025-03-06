@@ -1,9 +1,23 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router'; // ใช้ provideRouter แทน RouterModule
-import { routes } from './app/app.routes'; // ใช้ routes ที่กำหนดไว้
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app/app.component';
+import { StoryComponent } from './app/story/story.component';
+import { RouterModule } from '@angular/router';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { PictureComponent } from './app/picture/picture.component';  // เพิ่มการ import ของ PictureComponent
 
-// Bootstrap แอปพลิเคชัน
+
+// กำหนดเส้นทางของคุณ
+const routes = [
+  { path: '', component: StoryComponent },
+  { path: 'picture', component: PictureComponent },
+];
+
+// การตั้งค่า routing ใน Standalone App
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)] // ใช้ provideRouter
-}).catch(err => console.error(err));
+  providers: [
+    {
+      provide: RouterModule,
+      useValue: RouterModule.forRoot(routes),
+    },
+  ],
+});

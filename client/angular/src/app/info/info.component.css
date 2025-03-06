@@ -1,0 +1,58 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ป้องกันปัญหาขนาดของ element เกินจากที่กำหนด */
+  }
+.all{
+    position: relative;
+    background-color: #EEEEEE;
+    
+}
+.team img{
+    margin-top: 5%;  
+    margin-left: 10%; 
+    width: 37%;
+    height: auto;
+    border-radius: 20px;
+
+}
+.team div{
+  float: right;
+  margin-right: 18%;
+  margin-top: 8%;
+  width: 30%;
+  height: auto;     
+   
+}
+.team div h2{
+    color: #D46518;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 56px;
+}
+.team div p{
+    color: #4B3830;
+    font-size: 25px;
+    margin-top: 20px;
+    
+}
+
+.ta{
+    margin-top: 5%;
+    margin-left: 10%;
+
+
+}
+.ta h1{
+    color: #D46518;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 56px;
+}
+.ta p{
+    margin-top: 4%;
+    width: 60%;
+    color: #4B3830;
+    font-size: 25px;
+    margin-top: 20px;
+    
+}

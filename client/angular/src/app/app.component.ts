@@ -2,13 +2,25 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';  // ใช้ RouterOutlet สำหรับ Routing
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { StoryComponent } from './story/story.component';
+import { InfoComponent } from './info/info.component';
+import { PictureComponent } from './picture/picture.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  template: '<router-outlet></router-outlet>',  // ใช้ router-outlet เพื่อแสดง Component ตามเส้นทาง
-  styleUrls: ['./app.component.css'],
-  imports: [RouterOutlet ,NavbarComponent , FooterComponent] // ✅ ใช้เฉพาะ RouterOutlet
+  imports: [
+    RouterOutlet, 
+    NavbarComponent, 
+    FooterComponent, 
+    StoryComponent, 
+    InfoComponent, 
+    PictureComponent
+  ], 
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'team';
+  title = 'team-project';
 }
+
