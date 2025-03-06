@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.40, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.41, for Linux (x86_64)
 --
 -- Host: localhost    Database: my_database
 -- ------------------------------------------------------
--- Server version	8.0.40
+-- Server version	8.0.41
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `_prisma_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `_prisma_migrations` (
-  `id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `checksum` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `checksum` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `finished_at` datetime(3) DEFAULT NULL,
-  `migration_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `logs` text COLLATE utf8mb4_unicode_ci,
+  `migration_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logs` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `rolled_back_at` datetime(3) DEFAULT NULL,
   `started_at` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `applied_steps_count` int unsigned NOT NULL DEFAULT '0',
@@ -53,10 +53,10 @@ DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `category` (
-  `category_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `category_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `education_years`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `education_years` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `year_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `year_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -106,14 +106,14 @@ DROP TABLE IF EXISTS `equipment`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `equipment` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `equipment_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `equipment_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `qty` int NOT NULL,
   `purchase_year_Id` int DEFAULT NULL,
-  `model` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `room` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `categoryId` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `model` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `room` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `categoryId` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `createdAt` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -144,16 +144,16 @@ DROP TABLE IF EXISTS `students`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `students` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `education_yearsId` int NOT NULL,
-  `student_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `full_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nick_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `student_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `full_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nick_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `birthdate` datetime(3) DEFAULT NULL,
-  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -182,15 +182,15 @@ DROP TABLE IF EXISTS `teachers`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `teachers` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `full_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `full_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `createdAt` datetime(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `teachers_email_key` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,7 +199,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES (1,'athasart.na@kmitl.ac.th','อาจารย์','อรรถศาสตร์ นาตเทวัญ','$2a$12$q1aUJSIaEiUvUUhlvYhQSukM0w2OblU/Bzrnc2A0.FvSNmFjRROhq','2025-03-04 08:22:58.707','2025-03-04 08:22:58'),(2,'rattikorn.so@kmitl.ac.th','อาจารย์','รัตติกร สมบัติเเก้ว','$2a$12$hrqanwHbMrmHBbGdHfcNAumNWPp16Vj9d7MpBVmNXdKK3pepX7DNa','2025-03-04 08:22:58.707','2025-03-04 08:22:58'),(3,'test@email.com','นาย','พชรพล พรหมเพศ','$2a$12$/tAThca0/NuUxYSkQqW6euois207Rl6J38hFDYYT7vru1WkAr/3tC','2025-03-04 10:55:44.107','2025-03-04 10:55:44');
+INSERT INTO `teachers` VALUES (3,'test@email.com','นาย','พชรพล พรหมเพศ','$2a$12$/tAThca0/NuUxYSkQqW6euois207Rl6J38hFDYYT7vru1WkAr/3tC','2025-03-04 10:55:44.107','2025-03-04 10:55:44'),(4,'athasart.na@kmitl.ac.th','อาจารย์','อรรถศาสตร์ นาตเทวัญ','$2a$12$AZFYoG/.8eGNbUV0l17Ho.LqwJEq3rreuY89dsekULgZRNTBk.USC','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(5,'jaturong.ka@kmitl.ac.th','นาย','จตุรงค์ เกตุนิมิต','$2a$12$HUOGIiM.JL0PJaxlyMdYCuIgGfuW2BAkZHFb7antJj7.jS.FQAAgG','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(6,'pisakorn.si@kmitl.ac.th','อาจารย์','นภัทรพี สิทธิวัจน','$2a$12$mw1wqJ05eWDMPzN0XOkXt.ppDCK8uvuLm3ucNUtHh7B6pMX09z18m','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(7,'rattikorn.so@kmitl.ac.th','อาจารย์','รัตติกร สมบัติเเก้ว','$2a$12$3Q0UOeFzQ/KjyXgPPqTNUefWkggAMeC9hYW6PKk3O8GD5WjHmARi.','2025-03-06 14:54:30.685','2025-03-06 14:54:30'),(8,'silar.si@kmitl.ac.th','ว่าที่ ร.ต.','ศิลา ศิริมาสกุล','$2a$12$bb952SMz2Zt7FdAJkD.ZX.3wvHlOKW2PVX3AFfEQFyeMZYV7nB2Ru','2025-03-06 14:54:30.685','2025-03-06 14:54:30');
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,4 +238,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-04 21:16:40
+-- Dump completed on 2025-03-06 14:56:54
