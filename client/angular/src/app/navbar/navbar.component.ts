@@ -16,6 +16,10 @@ export class NavbarComponent {
 
   constructor(private authService: AuthService , private router: Router) {}
 
+  navigateHome() {
+    this.router.navigate(['/']);
+  }
+  
   ngOnInit() {
     this.authService.loginState$.subscribe(state => {
       this.isLoggedIn = state.token !== null;
