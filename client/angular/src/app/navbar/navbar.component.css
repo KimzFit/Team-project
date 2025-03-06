@@ -48,6 +48,7 @@
   width: 50px;  /* กำหนดความกว้างของโลโก้ */
   height: auto;  /* ป้องกันภาพบิดเบี้ยว */
   object-fit: contain; /* ทำให้ภาพไม่ผิดสัดส่วน */
+  cursor: pointer;
   
 }
 
