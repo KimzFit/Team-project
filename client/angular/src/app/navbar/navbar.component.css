@@ -144,6 +144,7 @@
   text-decoration: none;
   font-size: 16px;
   margin-right: 10px;
+  padding-left: 10px;
 }
 
 .kmitl-text {
@@ -238,4 +239,9 @@
     left: 160px;
     font-size: 20px;
   }
+
+  .login {
+    font-size: 12px;
+  }
+
 }
