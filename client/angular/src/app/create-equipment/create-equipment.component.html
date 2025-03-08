@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="create-equipment-container">
+  <h2>Create Equipment</h2>
+  <form (ngSubmit)="onSubmit()" #equipmentForm="ngForm">
+    <div class="form-group">
+      <label for="equipment_id">Equipment ID</label>
+      <input type="text" id="equipment_id" name="equipment_id" [(ngModel)]="equipment.equipment_id" required />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" [(ngModel)]="equipment.name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="qty">Quantity</label>
+      <input type="number" id="qty" name="qty" [(ngModel)]="equipment.qty" required />
+    </div>
+
+    <div class="form-group">
+      <label for="purchase_year">Purchase Year</label>
+      <input type="number" id="purchase_year" name="purchase_year" [(ngModel)]="equipment.purchase_year" required />
+    </div>
+
+    <div class="form-group">
+      <label for="model">Model</label>
+      <input type="text" id="model" name="model" [(ngModel)]="equipment.model" required />
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <input type="text" id="status" name="status" [(ngModel)]="equipment.status" required />
+    </div>
+
+    <div class="form-group">
+      <label for="categoryId">Category</label>
+      <select id="categoryId" name="categoryId" [(ngModel)]="equipment.categoryId" required>
+        <option value="" selected>เลือกหมวดหมู่</option>
+        <option *ngFor="let cat of category" [value]="cat.category_id">{{ cat.category_name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="room">Room</label>
+      <input type="text" id="room" name="room" [(ngModel)]="equipment.room" required />
+    </div>
+
+    <button type="submit" [disabled]="!equipmentForm.valid">Create Equipment</button>
+  </form>
+</div>
+<app-footer></app-footer>

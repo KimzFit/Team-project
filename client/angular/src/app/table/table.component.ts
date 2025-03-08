@@ -7,6 +7,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { AuthService } from '../store/auth.service'; // เพิ่ม AuthService
 import { HttpHeaders } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-table',
@@ -46,10 +47,10 @@ export class TableComponent implements OnInit {
 
     this.userRole = this.authService.getUserRole();
 
-    if (this.userRole !== 'teacher') {
-      this.router.navigate(['/']);
-      return;
-    }
+    // if (this.userRole !== 'teacher') {
+    //   this.router.navigate(['/']);
+    //   return;
+    // }
     this.fetchEquipmentData();
   }
 
@@ -58,7 +59,7 @@ export class TableComponent implements OnInit {
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
     this.http
-      .get<any[]>('http://localhost:7000/api/equipment', { headers })
+      .get<any[]>('http://localhost:7777/api/equipment', { headers })
       .subscribe(
         (data) => {
           this.equipmentData = data.sort(
@@ -89,7 +90,7 @@ export class TableComponent implements OnInit {
     } else if (this.selectedYear) {
       this.http
         .post<any[]>(
-          'http://localhost:7000/api/equipment/year',
+          'http://localhost:7777/api/equipment/year',
           { selectedYear: this.selectedYear },
           { headers }
         )
@@ -153,4 +154,41 @@ export class TableComponent implements OnInit {
       this.onRoomFilter();
     }
   }
+
+  deleteEquipment(id: string, name: string ,equipment_id : string): void {
+    Swal.fire({
+      title: `คุณต้องการลบ ${name} (${equipment_id}) จริงหรือ?`,
+      text: "หากคุณลบแล้ว ข้อมูลจะหายไปไม่สามารถกู้คืนได้!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'ลบ',
+      cancelButtonText: 'ยกเลิก'
+    }).then((result) => {
+      if (result.isConfirmed) {
+   
+        const token = this.authService.getToken();
+        const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+  
+        this.http.delete(`http://localhost:7777/api/equipment/delete/${id}`, { headers })
+          .subscribe(
+            () => {
+              
+              this.fetchEquipmentData();
+  
+              Swal.fire('ลบสำเร็จ!', `${name} (${equipment_id}) ถูกลบแล้ว`, 'success');
+            },
+            (error) => {
+              console.error('Error deleting equipment:', error);
+              Swal.fire('เกิดข้อผิดพลาด!', 'ไม่สามารถลบข้อมูลได้', 'error');
+            }
+          );
+      }
+    });
+  }
+  
+  
+
+
 }

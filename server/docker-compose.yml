@@ -2,12 +2,15 @@
 services:
   db:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: equipment_db
+    restart: always
+    env_file:
+      - .env
     environment:
-      MYSQL_ROOT_PASSWORD: 321341
-      MYSQL_DATABASE: my_database
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: equipment_db
     ports:
-      - "3307:3306"
+      - "${MYSQL_PORT}:3306"
     volumes:
       - ./db_backup.sql:/docker-entrypoint-initdb.d/db_backup.sql
       - db_data:/var/lib/mysql
@@ -16,11 +19,13 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin_container
     restart: always
+    env_file:
+      - .env
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: 321341
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "8080:80"
+      - "${PhpMyAdmin_PORT}:80"
     depends_on:
       - db
 
@@ -29,11 +34,13 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: node_backend
+    env_file:
+      - .env
     environment:
-      - DATABASE_URL=mysql://root:321341@db:3306/my_database
+      - DATABASE_URL=${DATABASE_URL}
       - NODE_ENV=development
     ports:
-      - "7000:7000"
+      - "${PORTSERVER}:${PORTSERVER}"
     depends_on:
       - db
     volumes:
@@ -46,8 +53,10 @@ services:
       context: ../client/angular
       dockerfile: Dockerfile
     container_name: angular_frontend
+    env_file:
+      - .env
     ports:
-      - "4200:4200"
+      - "${PORTCLIENT}:4200"
     depends_on:
       - backend
     volumes:

@@ -29,7 +29,7 @@
           >สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
           วิทยาเขตชุมพรเขตรอุดมศักดิ์</span
         >
-        <div style="display: flex; gap: 20px;">
+        <div style="display: flex; gap: 20px; align-items: center;">
           <ng-container
             *ngIf="isLoggedIn; else loginTemplate"
             
@@ -37,7 +37,7 @@
             <p>{{ userEmail }}</p>
             <button
               (click)="logout()"
-              style="background-color: transparent; border: none; color: white; cursor: pointer;"
+              style="background-color: #d46518; border: none; color: white; cursor: pointer; padding: 8px; border-radius: 5px; font-size: 14px;"
             >
               ออกจากระบบ
             </button>

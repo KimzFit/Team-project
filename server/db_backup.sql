@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.41, for Linux (x86_64)
 --
--- Host: localhost    Database: my_database
+-- Host: localhost    Database: equipment_db
 -- ------------------------------------------------------
 -- Server version	8.0.41
 
@@ -238,4 +238,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-06 14:58:56
+-- Dump completed on 2025-03-08 10:57:39

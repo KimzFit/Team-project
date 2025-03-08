@@ -40,7 +40,7 @@ export class LoginComponent {
         const loginData = { email: this.email, password: this.password };
         this.http
           .post<{ token: string; payload: any }>(
-            'http://localhost:7000/api/login',
+            'http://localhost:7777/api/login',
             loginData
           )
           .subscribe({

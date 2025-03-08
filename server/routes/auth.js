@@ -81,4 +81,68 @@ const { login } = require("../controllers/auth");
 
 router.post("/login", login);
 
+
+
+/**
+ * @swagger
+ * components:
+ *   securitySchemes:
+ *     BearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *
+ * security:
+ *   - BearerAuth: []
+ *
+ * /api/protected-route:
+ *   get:
+ *     summary: Protected route that requires authentication
+ *     tags:
+ *       - Authentication
+ *     security:
+ *       - BearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Authorized access
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Access granted"
+ *       401:
+ *         description: No Token, Authorization required
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "No Token, Authorization"
+ *       402:
+ *         description: Only teachers are allowed
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "สำหรับอาจารย์เท่านั้น"
+ *       500:
+ *         description: Server Error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Server Error"
+ */
+
 module.exports = router;
