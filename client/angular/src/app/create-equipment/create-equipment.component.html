@@ -1,47 +1,47 @@
 <app-navbar></app-navbar>
 <div class="create-equipment-container">
-  <h2>Create Equipment</h2>
+  <h2>เพิ่มครุภัณฑ์การศึกษา</h2>
   <form (ngSubmit)="onSubmit()" #equipmentForm="ngForm">
     <div class="form-group">
-      <label for="equipment_id">Equipment ID</label>
+      <label for="equipment_id">หมายเลขครุภัณฑ์</label>
       <input type="text" id="equipment_id" name="equipment_id" [(ngModel)]="equipment.equipment_id" required />
     </div>
 
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">รายการครุภัณฑ์</label>
       <input type="text" id="name" name="name" [(ngModel)]="equipment.name" required />
     </div>
 
     <div class="form-group">
-      <label for="qty">Quantity</label>
+      <label for="qty">จำนวน</label>
       <input type="number" id="qty" name="qty" [(ngModel)]="equipment.qty" required />
     </div>
 
     <div class="form-group">
-      <label for="purchase_year">Purchase Year</label>
+      <label for="purchase_year">ปีที่จัดซื้อ</label>
       <input type="number" id="purchase_year" name="purchase_year" [(ngModel)]="equipment.purchase_year" required />
     </div>
 
     <div class="form-group">
-      <label for="model">Model</label>
+      <label for="model">ยี่ห้อ/รุ่น</label>
       <input type="text" id="model" name="model" [(ngModel)]="equipment.model" required />
     </div>
 
     <div class="form-group">
-      <label for="status">Status</label>
+      <label for="status">สถานะ</label>
       <input type="text" id="status" name="status" [(ngModel)]="equipment.status" required />
     </div>
 
     <div class="form-group">
-      <label for="categoryId">Category</label>
+      <label for="categoryId">ประเภทครุภัณฑ์</label>
       <select id="categoryId" name="categoryId" [(ngModel)]="equipment.categoryId" required>
-        <option value="" selected>เลือกหมวดหมู่</option>
+        <option value="" selected>เลือกประเภท</option>
         <option *ngFor="let cat of category" [value]="cat.category_id">{{ cat.category_name }}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="room">Room</label>
+      <label for="room">ประจำที่</label>
       <input type="text" id="room" name="room" [(ngModel)]="equipment.room" required />
     </div>
 

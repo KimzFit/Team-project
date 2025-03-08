@@ -50,7 +50,7 @@ export class CreateEquipmentComponent implements OnInit {
     this.equipment.purchase_year = currentYearBE; 
 
     this.http.get('http://localhost:7777/api/category').subscribe((response: any) => {
-      this.category = response;
+      this.category = response.sort((a: any, b: any) => a.category_name.localeCompare(b.category_name));
     });
   }
 
