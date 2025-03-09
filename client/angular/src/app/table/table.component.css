@@ -5,7 +5,7 @@ html {
   height: 100%;
   background-color: #eeeeee;
   font-family: "Noto Sans Thai", sans-serif;
-  overflow-x: hidden; /* ป้องกันการเลื่อนแนวนอน */
+  overflow-x: hidden; 
 }
 
 .container {
@@ -34,21 +34,32 @@ html {
 
 .table-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: relative;
+  align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
+
 .search-container {
   display: flex;
+  align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
+
+.search-add-container {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+}
+
 .input-group {
-  width: 300px;
+  width: 250px;
   box-shadow: 1px 1px 1px #203864;
   border-radius: 8px;
   overflow: hidden;
 }
+
 .input-group-text {
   background-color: #ffffff !important;
 }
@@ -59,27 +70,29 @@ html {
 }
 
 .custom-table {
-  background-color: #e3f2fd; 
-  color: #000; 
+  background-color: #e3f2fd;
+  color: #000;
   border-collapse: collapse;
-  width: 100%; 
+  width: 100%;
 }
+
 .custom-table thead {
   background-color: #d46518;
   color: #203864;
   border-radius: 12px;
 }
+
 .custom-table tbody tr {
   background-color: #eeeeee;
   border-radius: 12px;
-  border-bottom: 1px solid #979797; /* เพิ่มเส้นขอบด้านล่างของแถว */
+  border-bottom: 1px solid #979797; 
 }
 .custom-table tr {
   font-size: 1.25em;
   text-transform: uppercase;
 }
 .table-wrapper {
-  max-height: 100%; /* เพิ่มความสูงของตาราง */
+  max-height: 100%; 
   overflow-y: auto;
 }
 .custom-table thead th:first-child {
@@ -108,34 +121,100 @@ html {
   width: 180px;
 }
 .table-wrapper {
-  max-height: 400px; 
+  max-height: 400px;
   overflow-y: auto;
 }
 
 .table-wrapper {
-  max-height: 550px; 
-  overflow-y: scroll; 
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+  max-height: 550px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .table-wrapper::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .table-main thead tr {
   position: sticky;
   top: 0;
-  background: #d46518; 
+  background: #d46518;
   z-index: 10;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.add-equipment-container{
+.add-equipment-container {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  margin-left: 10px;
 }
 
+.btn-primary {
+  background-color: #203864;
+  border-color: #203864;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
+.btn-primary i {
+  font-size: 1.2rem;
+}
+
+.btn-primary:hover {
+  background-color: #d46518;
+  border-color: #d46518;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .search-add-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-add-container {
+    flex-direction: column;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
