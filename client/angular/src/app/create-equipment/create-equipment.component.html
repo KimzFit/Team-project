@@ -1,5 +1,10 @@
 <app-navbar></app-navbar>
+
 <div class="create-equipment-container">
+  <button class="close-btn" onclick="window.location.href='/'">
+    &times;
+  </button>
+
   <h2>เพิ่มครุภัณฑ์การศึกษา</h2>
   <form (ngSubmit)="onSubmit()" #equipmentForm="ngForm">
     <div class="form-group">
@@ -48,4 +53,6 @@
     <button type="submit" [disabled]="!equipmentForm.valid">Create Equipment</button>
   </form>
 </div>
+
+
 <app-footer></app-footer>
